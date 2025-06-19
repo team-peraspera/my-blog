@@ -1,0 +1,56 @@
+/* Custom Sanity Studio Styles - Helvetica Neue */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
+
+/* Override default fonts */
+.sanity-studio {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  background-color: #FAFAFA !important;
+}
+
+/* Style the portable text editor */
+[data-testid="pt-editor"] {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  background-color: #FAFAFA !important;
+  padding: 2rem !important;
+  border-radius: 8px !important;
+}
+
+/* Style headings in the editor */
+[data-testid="pt-editor"] h1 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 50px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.5em !important;
+}
+
+[data-testid="pt-editor"] h2 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 40px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.5em !important;
+}
+
+[data-testid="pt-editor"] h3 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.5em !important;
+}
+
+[data-testid="pt-editor"] p {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1em !important;
+}

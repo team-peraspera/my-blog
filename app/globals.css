@@ -1,5 +1,240 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Sanity Studio Custom Styles */
+[data-portable-text-editor] h1 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 50px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+  line-height: 1.2 !important;
+}
 
-/* Your custom CSS here */
+[data-portable-text-editor] h2 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 40px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+  line-height: 1.2 !important;
+}
+
+[data-portable-text-editor] h3 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  color: #000000 !important;
+  line-height: 1.2 !important;
+}
+
+[data-portable-text-editor] p {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 18px !important;
+  color: #000000 !important;
+  line-height: 1.6 !important;
+}
+
+/* Helvetica Neue Typography for Blog Posts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
+
+.helvetica-title {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.helvetica-h1 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 50px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: 3rem 0 1rem 0;
+}
+
+.helvetica-h2 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: 2.5rem 0 1rem 0;
+}
+
+.helvetica-h3 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: 2rem 0 1rem 0;
+}
+
+.helvetica-h4 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.helvetica-h5 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.helvetica-h6 {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.helvetica-paragraph {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.helvetica-excerpt {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 48rem;
+}
+
+.helvetica-accent {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666666;
+}
+
+.helvetica-button {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.helvetica-button:hover {
+  opacity: 0.8;
+}
+
+.helvetica-blockquote {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  border-left: 4px solid #000000;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.helvetica-list {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.helvetica-list-item {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.helvetica-strong {
+  font-weight: 500;
+  color: #000000;
+}
+
+.helvetica-em {
+  font-style: italic;
+  color: #000000;
+}
+
+.helvetica-link {
+  color: #000000;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.helvetica-link:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.helvetica-code-container {
+  margin: 2rem 0;
+}
+
+.helvetica-code {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+}
+
+.helvetica-code-language {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: #666666;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.helvetica-image {
+  margin: 2.5rem 0;
+}
+
+.helvetica-caption {
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  color: #666666;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.helvetica-embed {
+  margin: 2.5rem 0;
+}
+

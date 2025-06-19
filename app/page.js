@@ -1,28 +1,52 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { client } from '../sanity/lib/client';
 
-export default function HomePage() {
+function HomePage() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Load blog posts when page loads
+  // Load blog posts from Sanity when page loads
   useEffect(() => {
-    // Dummy data for now - we'll connect Sanity later
-    setPosts([
-      {
-        id: 1,
-        title: "Welcome to Team Per Aspera",
-        excerpt: "Our journey to the stars begins with a single step. Here's what we're building and why it matters.",
-        publishedAt: "2024-06-18",
-        slug: "welcome-to-team-per-aspera"
-      },
-      {
-        id: 2,
-        title: "Through Hardships to the Stars", 
-        excerpt: "The meaning behind our name and the challenges we're tackling in the space industry.",
-        publishedAt: "2024-06-17",
-        slug: "through-hardships-to-stars"
+    async function fetchPosts() {
+      try {
+        const sanityPosts = await client.fetch(`
+          *[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
+            _id,
+            title,
+            slug,
+            excerpt,
+            publishedAt,
+            "author": author->name
+          }
+        `);
+        
+        setPosts(sanityPosts);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        // Fallback to dummy data if Sanity fails
+        setPosts([
+          {
+            _id: 1,
+            title: "Welcome to Team Per Aspera",
+            excerpt: "Our journey to the stars begins with a single step. Here's what we're building and why it matters.",
+            publishedAt: "2024-06-18",
+            slug: { current: "welcome-to-team-per-aspera" }
+          },
+          {
+            _id: 2,
+            title: "Through Hardships to the Stars", 
+            excerpt: "The meaning behind our name and the challenges we're tackling in the space industry.",
+            publishedAt: "2024-06-17",
+            slug: { current: "through-hardships-to-stars" }
+          }
+        ]);
+        setLoading(false);
       }
-    ]);
+    }
+
+    fetchPosts();
   }, []);
 
   return (
@@ -157,36 +181,42 @@ export default function HomePage() {
           <div className="space-y-12">
             <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">Latest Updates</h2>
             
-            {posts.map((post) => (
-              <article key={post.id} className="bg-white border border-gray-200 rounded-xl p-8 hover:border-gray-300 transition-all shadow-sm">
-                <div className="mb-6">
-                  <h3 className="text-3xl font-bold mb-3 text-gray-900 hover:text-blue-600 transition-colors">
-                    <a href={`/posts/${post.slug}`}>
-                      {post.title}
-                    </a>
-                  </h3>
-                  <p className="text-gray-500 text-sm">
-                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
+            {loading ? (
+              <div className="text-center py-8">
+                <p className="text-gray-500">Loading posts...</p>
+              </div>
+            ) : (
+              posts.map((post) => (
+                <article key={post._id} className="bg-white border border-gray-200 rounded-xl p-8 hover:border-gray-300 transition-all shadow-sm">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-bold mb-3 text-gray-900 hover:text-blue-600 transition-colors">
+                      <a href={`/posts/${post.slug?.current || post.slug}`}>
+                        {post.title}
+                      </a>
+                    </h3>
+                    <p className="text-gray-500 text-sm">
+                      {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </p>
+                  </div>
+                  
+                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                    {post.excerpt}
                   </p>
-                </div>
-                
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  {post.excerpt}
-                </p>
-                
-                <a 
-                  href={`/posts/${post.slug}`}
-                  className="inline-flex items-center text-blue-600 hover:text-blue-500 font-semibold transition-colors"
-                >
-                  Read full update
-                  <span className="ml-2">→</span>
-                </a>
-              </article>
-            ))}
+                  
+                  <a 
+                    href={`/posts/${post.slug?.current || post.slug}`}
+                    className="inline-flex items-center text-blue-600 hover:text-blue-500 font-semibold transition-colors"
+                  >
+                    Read full update
+                    <span className="ml-2">→</span>
+                  </a>
+                </article>
+              ))
+            )}
           </div>
 
           {/* Footer */}
@@ -198,3 +228,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+export default HomePage;
